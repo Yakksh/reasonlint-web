@@ -10,7 +10,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 
 function App() {
     return (
-        <BrowserRouter>
+        <BrowserRouter basename={import.meta.env.BASE_URL}>
             <ScrollToTop />
             <div className="min-h-screen bg-space-950 text-slate-200 selection:bg-violet-500/30 selection:text-white">
                 <Routes>
