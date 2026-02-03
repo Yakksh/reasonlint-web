@@ -10,7 +10,7 @@ export const Footer = () => {
                 <div className="flex flex-col md:flex-row items-center justify-between gap-6">
                     {/* Logo */}
                     <div className="flex items-center gap-2">
-                        <img src="/reasonlint-logo.png" alt="ReasonLint Logo" className="w-6 h-6 rounded-md" />
+                        <img src={`${import.meta.env.BASE_URL}reasonlint-logo.png`} alt="ReasonLint Logo" className="w-6 h-6 rounded-md" />
                         <span className="font-semibold text-white">ReasonLint</span>
                     </div>
 

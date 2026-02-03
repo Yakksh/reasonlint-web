@@ -32,7 +32,7 @@ export const Navbar = () => {
                         className="flex items-center gap-2 text-xl font-bold text-white hover:text-violet-300 transition-colors group"
                         onClick={scrollToTop}
                     >
-                        <img src="/reasonlint-logo.png" alt="ReasonLint Logo" className="w-8 h-8 rounded-lg transition-transform duration-300 group-hover:scale-105" />
+                        <img src={`${import.meta.env.BASE_URL}reasonlint-logo.png`} alt="ReasonLint Logo" className="w-8 h-8 rounded-lg transition-transform duration-300 group-hover:scale-105" />
                         ReasonLint
                     </Link>
 
