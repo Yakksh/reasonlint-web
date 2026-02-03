@@ -1,1 +1,3 @@
-# reasonlint-web
+# ReasonLint Web
+
+Web interface for ReasonLint.
