@@ -66,7 +66,7 @@ export const Install = () => {
                         Get <span className="gradient-text">Started</span>
                     </h2>
                     <p className="text-slate-400 text-lg">
-                        Install ReasonLint in seconds. No Go required.
+                        Install ReasonLint in seconds.
                     </p>
                 </div>
 

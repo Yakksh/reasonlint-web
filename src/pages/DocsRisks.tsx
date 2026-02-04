@@ -3,7 +3,7 @@ export const DocsRisks = () => {
         <div>
             <h1>Risk Taxonomy</h1>
             <p>
-                ReasonLint identifies five categories of <strong>reasoning risks</strong> — subtle issues that traditional linters miss.
+                ReasonLint identifies five categories of <strong>reasoning risks</strong> - subtle issues that traditional linters miss.
                 These are not bugs or syntax errors; they're logical flaws and hidden assumptions that can cause problems in production.
             </p>
 
