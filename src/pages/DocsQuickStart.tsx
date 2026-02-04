@@ -1,4 +1,5 @@
 import { CodeBlock } from '../components/docs/CodeBlock';
+import { INSTALL_URLS } from '../config';
 
 export const DocsQuickStart = () => {
     return (
@@ -17,12 +18,12 @@ export const DocsQuickStart = () => {
 
             <h3>macOS / Linux</h3>
             <CodeBlock title="Terminal">
-                {`curl -fsSL https://reasonlint.com/install.sh | bash`}
+                {`curl -fsSL ${INSTALL_URLS.sh} | bash`}
             </CodeBlock>
 
             <h3>Windows (PowerShell)</h3>
             <CodeBlock title="PowerShell">
-                {`irm https://reasonlint.com/install.ps1 | iex`}
+                {`irm ${INSTALL_URLS.ps1} | iex`}
             </CodeBlock>
 
             <p className="text-sm text-slate-400 mt-4">

@@ -1,5 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 import { Copy, Check, Terminal, Zap, Apple, Monitor } from 'lucide-react';
+import { INSTALL_URLS } from '../config';
 
 type Platform = 'macos' | 'linux' | 'windows';
 
@@ -10,30 +11,32 @@ const detectPlatform = (): Platform => {
     return 'linux';
 };
 
-const platformConfig = {
+const getPlatformConfig = (installUrls: typeof INSTALL_URLS) => ({
     macos: {
         name: 'macOS',
         icon: Apple,
-        command: 'curl -fsSL https://reasonlint.com/install.sh | bash',
+        command: `curl -fsSL ${installUrls.sh} | bash`,
         color: 'text-slate-300',
     },
     linux: {
         name: 'Linux',
         icon: Terminal,
-        command: 'curl -fsSL https://reasonlint.com/install.sh | bash',
+        command: `curl -fsSL ${installUrls.sh} | bash`,
         color: 'text-orange-300',
     },
     windows: {
         name: 'Windows',
         icon: Monitor,
-        command: 'irm https://reasonlint.com/install.ps1 | iex',
+        command: `irm ${installUrls.ps1} | iex`,
         color: 'text-blue-300',
     },
-};
+});
 
 export const Install = () => {
     const [platform, setPlatform] = useState<Platform>('macos');
     const [copied, setCopied] = useState(false);
+
+    const platformConfig = useMemo(() => getPlatformConfig(INSTALL_URLS), []);
 
     useEffect(() => {
         setPlatform(detectPlatform());

@@ -1,6 +1,6 @@
 #!/bin/bash
 # ReasonLint Installer for macOS and Linux
-# Usage: curl -fsSL https://reasonlint.com/install.sh | bash
+# Usage: curl -fsSL <BASE_URL>/install.sh | bash
 
 set -e
 
@@ -11,7 +11,8 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-BASE_URL="https://reasonlint.com/releases"
+# Base URL - can be overridden with REASONLINT_BASE_URL environment variable
+BASE_URL="${REASONLINT_BASE_URL:-https://yakksh.github.io/reasonlint-web}/releases"
 INSTALL_DIR="/usr/local/bin"
 BINARY_NAME="reasonlint"
 
@@ -47,7 +48,7 @@ case "$OS" in
         echo -e "${RED}❌ Windows detected${NC}"
         echo "   Please use the PowerShell installer instead:"
         echo ""
-        echo -e "   ${BLUE}irm https://reasonlint.com/install.ps1 | iex${NC}"
+        echo -e "   ${BLUE}irm <BASE_URL>/install.ps1 | iex${NC}"
         echo ""
         exit 1
         ;;

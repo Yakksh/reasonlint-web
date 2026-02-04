@@ -1,9 +1,10 @@
 # ReasonLint Installer for Windows
-# Usage: irm https://reasonlint.com/install.ps1 | iex
+# Usage: irm <BASE_URL>/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
-$BaseUrl = "https://reasonlint.com/releases"
+# Base URL - can be overridden with REASONLINT_BASE_URL environment variable
+$BaseUrl = if ($env:REASONLINT_BASE_URL) { "$env:REASONLINT_BASE_URL/releases" } else { "https://yakksh.github.io/reasonlint-web/releases" }
 $InstallDir = "$env:LOCALAPPDATA\Programs\reasonlint"
 $BinaryName = "reasonlint"
 
