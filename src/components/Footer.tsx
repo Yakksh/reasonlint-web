@@ -1,4 +1,3 @@
-import { Heart } from 'lucide-react';
 
 export const Footer = () => {
     return (
@@ -12,16 +11,13 @@ export const Footer = () => {
                     <div className="flex items-center gap-2">
                         <img src={`${import.meta.env.BASE_URL}reasonlint-logo.png`} alt="ReasonLint Logo" className="w-6 h-6 rounded-md" />
                         <span className="font-semibold text-white">ReasonLint</span>
+                        <span className="text-slate-600">·</span>
+                        <span className="text-sm text-slate-500">by Octapehar</span>
                     </div>
-
-                    {/* Made with love */}
-                    <p className="text-slate-500 text-sm flex items-center gap-1.5">
-                        Made with <Heart size={14} className="text-pink-500 fill-pink-500" /> for developers who care about quality
-                    </p>
 
                     {/* Copyright */}
                     <p className="text-slate-600 text-sm">
-                        © {new Date().getFullYear()} ReasonLint
+                        © {new Date().getFullYear()} Octapehar
                     </p>
                 </div>
             </div>
