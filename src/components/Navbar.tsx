@@ -38,7 +38,7 @@ export const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="/#features" className="nav-link text-slate-400 hover:text-white transition-colors">
+                        <a href="#features" className="nav-link text-slate-400 hover:text-white transition-colors">
                             Features
                         </a>
                         <Link
@@ -49,7 +49,7 @@ export const Navbar = () => {
                             <BookOpen size={16} />
                             Docs
                         </Link>
-                        <a href="/#install" className="nav-link text-slate-400 hover:text-white transition-colors">
+                        <a href="#install" className="nav-link text-slate-400 hover:text-white transition-colors">
                             Install
                         </a>
                     </div>
@@ -68,7 +68,7 @@ export const Navbar = () => {
                     <div className="md:hidden py-4 border-t border-violet-500/10 bg-space-950/95 backdrop-blur-xl rounded-b-2xl">
                         <div className="flex flex-col gap-2">
                             <a
-                                href="/#features"
+                                href="#features"
                                 className="px-4 py-3 text-slate-400 hover:text-white hover:bg-violet-500/10 rounded-lg transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
@@ -86,7 +86,7 @@ export const Navbar = () => {
                                 Docs
                             </Link>
                             <a
-                                href="/#install"
+                                href="#install"
                                 className="px-4 py-3 text-slate-400 hover:text-white hover:bg-violet-500/10 rounded-lg transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
