@@ -3,7 +3,7 @@
     "private": true,
     "version": "0.0.0",
     "type": "module",
-    "homepage": "https://Yakksh.github.io/reasonlint-web",
+    "homepage": "https://reasonlint.octapehar.com",
     "scripts": {
         "dev": "vite",
         "build": "tsc -b && vite build",
