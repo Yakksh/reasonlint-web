@@ -147,6 +147,12 @@ export const Install = () => {
                             . Run <code className="text-violet-300 bg-violet-500/10 px-1.5 py-0.5 rounded">reasonlint auth</code> after install.
                         </p>
                     </div>
+                    <p className="text-slate-500 text-xs mt-3">
+                        Already installed?{' '}
+                        <code className="text-violet-400/70 bg-violet-500/5 px-1 py-0.5 rounded">reasonlint update</code>
+                        {' · '}
+                        <code className="text-violet-400/70 bg-violet-500/5 px-1 py-0.5 rounded">reasonlint uninstall</code>
+                    </p>
                 </div>
 
 

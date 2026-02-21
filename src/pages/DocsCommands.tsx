@@ -136,7 +136,7 @@ export const DocsCommands = () => {
                     <tr>
                         <td><code>model</code></td>
                         <td>AI model to use</td>
-                        <td>anthropic/claude-haiku-4.5</td>
+                        <td>anthropic/claude-sonnet-4-20250514</td>
                     </tr>
                     <tr>
                         <td><code>max_tokens</code></td>
@@ -162,6 +162,92 @@ export const DocsCommands = () => {
 
             <CodeBlock title="Change model">
                 {`reasonlint config set model anthropic/claude-sonnet-4`}
+            </CodeBlock>
+
+            <hr className="border-slate-800 my-8" />
+
+            <h2 id="update">reasonlint update</h2>
+            <p>Check for and install the latest version of ReasonLint.</p>
+
+            <h3>Usage</h3>
+            <CodeBlock>
+                {`reasonlint update [flags]`}
+            </CodeBlock>
+
+            <h3>Flags</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flag</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>-f, --force</code></td>
+                        <td>Skip confirmation prompt</td>
+                    </tr>
+                    <tr>
+                        <td><code>--check</code></td>
+                        <td>Only check for updates, don't install</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Examples</h3>
+            <CodeBlock title="Update to latest version">
+                {`reasonlint update`}
+            </CodeBlock>
+
+            <CodeBlock title="Force update (skip confirmation)">
+                {`reasonlint update --force`}
+            </CodeBlock>
+
+            <CodeBlock title="Check for updates only">
+                {`reasonlint update --check`}
+            </CodeBlock>
+
+            <hr className="border-slate-800 my-8" />
+
+            <h2 id="uninstall">reasonlint uninstall</h2>
+            <p>Remove ReasonLint and optionally its configuration from your system.</p>
+
+            <h3>Usage</h3>
+            <CodeBlock>
+                {`reasonlint uninstall [flags]`}
+            </CodeBlock>
+
+            <h3>Flags</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Flag</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><code>-f, --force</code></td>
+                        <td>Skip all confirmation prompts</td>
+                    </tr>
+                    <tr>
+                        <td><code>--keep-config</code></td>
+                        <td>Remove binary only; preserve ~/.reasonlint/ configuration</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Examples</h3>
+            <CodeBlock title="Uninstall ReasonLint">
+                {`reasonlint uninstall`}
+            </CodeBlock>
+
+            <CodeBlock title="Uninstall but keep config files">
+                {`reasonlint uninstall --keep-config`}
+            </CodeBlock>
+
+            <CodeBlock title="Force uninstall (no prompts)">
+                {`reasonlint uninstall --force`}
             </CodeBlock>
 
             <hr className="border-slate-800 my-8" />

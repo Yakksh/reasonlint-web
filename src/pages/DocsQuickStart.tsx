@@ -27,7 +27,7 @@ export const DocsQuickStart = () => {
             </CodeBlock>
 
             <p className="text-sm text-slate-400 mt-4">
-                <strong>Alternative:</strong> You can also <a href="/releases/v1.0.0/">download the binary directly</a> for your platform.
+                <strong>Alternative:</strong> You can also download the binary directly from the <a href="/docs/quick-start">releases page</a> for your platform.
             </p>
 
             <h2>Step 2: Configure API Key</h2>
