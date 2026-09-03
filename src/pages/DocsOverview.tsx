@@ -33,7 +33,7 @@ export const DocsOverview = () => {
 
             <h2>How It Works</h2>
             <ol>
-                <li><strong>Git Integration:</strong> ReasonLint reads your staged changes or commit diffs directly from Git.</li>
+                <li><strong>Git Integration:</strong> ReasonLint reads your uncommitted work or commit diffs directly from Git &mdash; or reviews any file you name, tracked or not.</li>
                 <li><strong>AI Analysis:</strong> Changes are analyzed by an AI model (Claude, GPT-4, etc.) via OpenRouter.</li>
                 <li><strong>Risk Report:</strong> You get a structured report identifying reasoning risks with explanations and questions.</li>
             </ol>

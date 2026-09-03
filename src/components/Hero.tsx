@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const TypingAnimation = () => {
     const [displayText, setDisplayText] = useState('');
     const [showCursor, setShowCursor] = useState(true);
-    const fullText = 'reasonlint review --staged';
+    const fullText = 'reasonlint review';
 
     useEffect(() => {
         let index = 0;
@@ -82,7 +82,7 @@ export const Hero = () => {
                         </div>
                     </div>
                     <div className="flex-1 w-full max-w-lg lg:max-w-none animate-slide-in">
-                        <Terminal title="reasonlint review --staged" className="terminal-glow">
+                        <Terminal title="reasonlint review" className="terminal-glow">
                             <div className="space-y-3">
                                 <div className="flex gap-2">
                                     <span className="text-violet-400">➜</span>

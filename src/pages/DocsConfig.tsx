@@ -37,7 +37,7 @@ api_key: sk-or-v1-xxxxxxxxxxxxx
 
 # AI model to use for analysis
 # See available models at: https://openrouter.ai/models
-model: anthropic/claude-haiku-4.5
+model: minimax/minimax-m3:free
 
 # Maximum tokens for AI response
 max_tokens: 4096
@@ -58,40 +58,44 @@ temperature: 0.3`}
             </ul>
 
             <h3>model</h3>
-            <p>The AI model to use for code analysis. Default: <code>anthropic/claude-haiku-4.5</code></p>
+            <p>
+                The AI model to use for code analysis. Default:{' '}
+                <code>minimax/minimax-m3:free</code>
+            </p>
+            <p>
+                The default is a free model so that a fresh install works before you have added any
+                OpenRouter credit. Run <code>reasonlint auth</code> to pick a different one &mdash;
+                it lists whatever is free at the time, and you can type any model ID instead.
+            </p>
 
-            <h4>Recommended Models</h4>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Model</th>
-                        <th>Best For</th>
-                        <th>Cost</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><code>anthropic/claude-sonnet-4</code></td>
-                        <td>Balanced performance & cost</td>
-                        <td>$$</td>
-                    </tr>
-                    <tr>
-                        <td><code>anthropic/claude-opus-4</code></td>
-                        <td>Complex codebases</td>
-                        <td>$$$</td>
-                    </tr>
-                    <tr>
-                        <td><code>openai/gpt-4o</code></td>
-                        <td>Alternative to Claude</td>
-                        <td>$$</td>
-                    </tr>
-                    <tr>
-                        <td><code>google/gemini-2.5-pro</code></td>
-                        <td>Large context windows</td>
-                        <td>$$</td>
-                    </tr>
-                </tbody>
-            </table>
+            <h4>Choosing a Model</h4>
+            <p>
+                ReasonLint works with any model ID on OpenRouter, so there is no single right
+                answer &mdash; it is a trade-off:
+            </p>
+            <ul>
+                <li>
+                    <strong>Capability against cost.</strong> More capable models catch subtler
+                    reasoning risks and raise fewer false alarms, and they cost proportionally more
+                    per review. A smaller model is perfectly adequate for a quick pass over a small
+                    diff.
+                </li>
+                <li>
+                    <strong>Context window.</strong> The whole diff, or the whole file, has to fit
+                    in the prompt. If you routinely review large changes, weight this heavily.
+                </li>
+                <li>
+                    <strong>Free tiers.</strong> Free models cost nothing, but they are usually rate
+                    limited and can be withdrawn at any time.
+                </li>
+            </ul>
+            <p>
+                We deliberately don't list specific models here. The catalog changes constantly, and
+                a hardcoded recommendation is out of date within months. Instead, run{' '}
+                <code>reasonlint auth</code> &mdash; it fetches what OpenRouter is offering for free
+                at that moment. For the full catalog with pricing and context windows, see{' '}
+                <a href="https://openrouter.ai/models">openrouter.ai/models</a>.
+            </p>
 
             <h3>max_tokens</h3>
             <p>Maximum number of tokens for the AI response. Default: <code>4096</code></p>
@@ -109,14 +113,6 @@ temperature: 0.3`}
                 <li><code>0.7+</code> - More creative, less consistent</li>
             </ul>
 
-            <h2>Environment Variables</h2>
-            <p>Configuration can also be set via environment variables:</p>
-            <CodeBlock>
-                {`export REASONLINT_API_KEY="sk-or-v1-xxx"
-export REASONLINT_MODEL="anthropic/claude-sonnet-4"`}
-            </CodeBlock>
-            <p className="text-slate-400 text-sm">Environment variables take precedence over config file values.</p>
-
             <h2>Managing Configuration</h2>
 
             <h3>View Current Config</h3>
@@ -131,7 +127,7 @@ export REASONLINT_MODEL="anthropic/claude-sonnet-4"`}
 
             <h3>Update Config Values</h3>
             <CodeBlock>
-                {`reasonlint config set model anthropic/claude-opus-4
+                {`reasonlint config set model <model-id>
 reasonlint config set temperature 0.2
 reasonlint config set max_tokens 8192`}
             </CodeBlock>
