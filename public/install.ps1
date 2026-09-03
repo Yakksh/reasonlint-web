@@ -1,10 +1,13 @@
 # ReasonLint Installer for Windows
-# Usage: irm <BASE_URL>/install.ps1 | iex
+# Usage: irm https://reasonlint.octapehar.com/install.ps1 | iex
 
 $ErrorActionPreference = "Stop"
 
-# Base URL - can be overridden with REASONLINT_BASE_URL environment variable
-$BaseUrl = if ($env:REASONLINT_BASE_URL) { "$env:REASONLINT_BASE_URL/releases" } else { "https://yakksh.github.io/reasonlint-web/releases" }
+# The version manifest lives on the ReasonLint site; the binaries live on
+# GitHub Releases, where each asset download is counted. Override with
+# REASONLINT_BASE_URL and REASONLINT_DOWNLOAD_URL.
+$ManifestUrl = if ($env:REASONLINT_BASE_URL) { "$env:REASONLINT_BASE_URL/releases" } else { "https://reasonlint.octapehar.com/releases" }
+$DownloadBase = if ($env:REASONLINT_DOWNLOAD_URL) { $env:REASONLINT_DOWNLOAD_URL } else { "https://github.com/Yakksh/reasonlint-web/releases/download" }
 $InstallDir = "$env:LOCALAPPDATA\Programs\reasonlint"
 $BinaryName = "reasonlint"
 
@@ -16,7 +19,7 @@ Write-Host ""
 # Get latest version
 Write-Host "   Fetching latest version..."
 try {
-    $LatestJson = Invoke-RestMethod -Uri "$BaseUrl/latest.json" -UseBasicParsing
+    $LatestJson = Invoke-RestMethod -Uri "$ManifestUrl/latest.json" -UseBasicParsing
     $Version = $LatestJson.version
     Write-Host "   Version: $Version" -ForegroundColor Green
 } catch {
@@ -42,7 +45,7 @@ Write-Host "   Platform: Windows ($ArchName)" -ForegroundColor Green
 
 # Download URL
 $BinaryFile = "$BinaryName-windows-$Arch.exe"
-$DownloadUrl = "$BaseUrl/$Version/$BinaryFile"
+$DownloadUrl = "$DownloadBase/$Version/$BinaryFile"
 $DestPath = "$InstallDir\$BinaryName.exe"
 
 Write-Host "   Downloading: $DownloadUrl" -ForegroundColor Blue
