@@ -1,6 +1,6 @@
 #!/bin/bash
 # ReasonLint Installer for macOS and Linux
-# Usage: curl -fsSL <BASE_URL>/install.sh | bash
+# Usage: curl -fsSL https://reasonlint.octapehar.com/install.sh | bash
 
 set -e
 
@@ -11,8 +11,11 @@ BLUE='\033[0;34m'
 YELLOW='\033[0;33m'
 NC='\033[0m' # No Color
 
-# Base URL - can be overridden with REASONLINT_BASE_URL environment variable
-BASE_URL="${REASONLINT_BASE_URL:-https://yakksh.github.io/reasonlint-web}/releases"
+# The version manifest lives on the ReasonLint site; the binaries live on
+# GitHub Releases, where each asset download is counted. Override with
+# REASONLINT_BASE_URL and REASONLINT_DOWNLOAD_URL.
+MANIFEST_URL="${REASONLINT_BASE_URL:-https://reasonlint.octapehar.com}/releases"
+DOWNLOAD_BASE="${REASONLINT_DOWNLOAD_URL:-https://github.com/Yakksh/reasonlint-web/releases/download}"
 INSTALL_DIR="/usr/local/bin"
 BINARY_NAME="reasonlint"
 
@@ -23,7 +26,7 @@ echo ""
 
 # Get latest version
 echo -e "   Fetching latest version..."
-VERSION=$(curl -fsSL "${BASE_URL}/latest.json" 2>/dev/null | grep -o '"version": *"[^"]*"' | cut -d'"' -f4)
+VERSION=$(curl -fsSL "${MANIFEST_URL}/latest.json" 2>/dev/null | grep -o '"version": *"[^"]*"' | cut -d'"' -f4)
 
 if [ -z "$VERSION" ]; then
     echo -e "${RED}❌ Failed to fetch latest version${NC}"
@@ -48,7 +51,7 @@ case "$OS" in
         echo -e "${RED}❌ Windows detected${NC}"
         echo "   Please use the PowerShell installer instead:"
         echo ""
-        echo -e "   ${BLUE}irm <BASE_URL>/install.ps1 | iex${NC}"
+        echo -e "   ${BLUE}irm https://reasonlint.octapehar.com/install.ps1 | iex${NC}"
         echo ""
         exit 1
         ;;
@@ -79,7 +82,7 @@ echo -e "   Platform: ${GREEN}${OS_NAME} (${ARCH_NAME})${NC}"
 
 # Download URL
 BINARY_FILE="${BINARY_NAME}-${OS}-${ARCH}"
-DOWNLOAD_URL="${BASE_URL}/${VERSION}/${BINARY_FILE}"
+DOWNLOAD_URL="${DOWNLOAD_BASE}/${VERSION}/${BINARY_FILE}"
 
 echo -e "   Downloading: ${BLUE}${DOWNLOAD_URL}${NC}"
 
