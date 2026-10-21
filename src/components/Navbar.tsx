@@ -38,9 +38,9 @@ export const Navbar = () => {
 
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center gap-8">
-                        <a href="#features" className="nav-link text-slate-400 hover:text-white transition-colors">
+                        <Link to="/#features" className="nav-link text-slate-400 hover:text-white transition-colors">
                             Features
-                        </a>
+                        </Link>
                         <Link
                             to="/docs"
                             className={`nav-link flex items-center gap-1.5 transition-colors ${isDocsPage ? 'text-violet-400' : 'text-slate-400 hover:text-white'
@@ -49,9 +49,9 @@ export const Navbar = () => {
                             <BookOpen size={16} />
                             Docs
                         </Link>
-                        <a href="#install" className="nav-link text-slate-400 hover:text-white transition-colors">
+                        <Link to="/#install" className="nav-link text-slate-400 hover:text-white transition-colors">
                             Install
-                        </a>
+                        </Link>
                     </div>
 
                     {/* Mobile Menu Button */}
@@ -67,13 +67,13 @@ export const Navbar = () => {
                 {mobileMenuOpen && (
                     <div className="md:hidden py-4 border-t border-violet-500/10 bg-space-950/95 backdrop-blur-xl rounded-b-2xl">
                         <div className="flex flex-col gap-2">
-                            <a
-                                href="#features"
+                            <Link
+                                to="/#features"
                                 className="px-4 py-3 text-slate-400 hover:text-white hover:bg-violet-500/10 rounded-lg transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Features
-                            </a>
+                            </Link>
                             <Link
                                 to="/docs"
                                 className={`px-4 py-3 flex items-center gap-2 rounded-lg transition-colors ${isDocsPage
@@ -85,13 +85,13 @@ export const Navbar = () => {
                                 <BookOpen size={16} />
                                 Docs
                             </Link>
-                            <a
-                                href="#install"
+                            <Link
+                                to="/#install"
                                 className="px-4 py-3 text-slate-400 hover:text-white hover:bg-violet-500/10 rounded-lg transition-colors"
                                 onClick={() => setMobileMenuOpen(false)}
                             >
                                 Install
-                            </a>
+                            </Link>
                         </div>
                     </div>
                 )}
